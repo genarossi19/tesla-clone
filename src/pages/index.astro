@@ -1,65 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Tesla from "../components/icons/Tesla.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ModelYSection from "../components/ModelYSection.astro";
 ---
 
 <Layout title="Tesla">
-  <main>
-    <header
-      class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40"
-    >
-      <div class="flex flex-grow basis-0">
-        <Tesla />
-      </div>
+  <!-- hacemos que scrollee el contenedor, no la pagina, para hacer el slider  -->
 
-      <nav>
-        <ul
-          class="flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-medium"
-        >
-          <li><a href="">Model S</a></li>
-          <li><a href="">Model 3</a></li>
-          <li><a href="">Model X</a></li>
-          <li><a href="">Model Y</a></li>
-          <li><a href="">Solar Roof</a></li>
-          <li><a href="">Solar Panels</a></li>
-        </ul>
-      </nav>
-      <nav class="flex flex-grow basis-0 justify-end">
-        <ul
-          class="flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-medium ext-gray-900"
-        >
-          <li><a href="">Support</a></li>
-          <li><a href="">Shop</a></li>
-          <li><a href="">Account</a></li>
-          <li><a href="">Menu</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section
-      class="bg-black h-screen w-screen text-center relative overflow-hidden "
-    >
-      <!-- no pasa nada con usar dos header y dos footer en una pagina, ya que este es el header de la SECTION no de la pagina en si -->
-		<div class="z-30 relative h-full flex flex-col"> 
-			<header class="">
-				<h2 class="text-[40px] text-white pt-40 font-medium">Disfrute de Tesla</h2>
-				<p class="text-sm text-white ">
-				  Programe una prueba de conduccion hoy mismo
-				</p>
-			  </header>
-		
-			  <footer class=" flex flex-grow flex-col flex-nowrap justify-end pb-20">
-				<!-- envolvemos el boton en un div para que no tome todo el ancho del footer -->
-				<div class="">
-					<a class=" text-sm  py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-white/30  hover:border-white/5 hover:backdrop-blur-3xl active:bg-white active:text-black transition-all duration-300 " href="#"><span>Prueba de conducción</span></a>
-				</div>
-			  </footer>
-		</div>
-
-      <div class="absolute top-0 bottom-0 h-full z-10">
-        <video class=" object-center object-cover h-full" src="/video.webm" autoplay muted loop
-        ></video>
-      </div>
-    </section>
+  <!-- el snap-y mandatory es para que al scrollear donde apenas aparezca la seccion, haga el salto -->
+  <main class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
+    <HeroSection />
+    <ModelYSection />
   </main>
 </Layout>

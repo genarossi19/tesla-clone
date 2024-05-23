@@ -1,0 +1,99 @@
+---
+import Tesla from "../components/icons/Tesla.astro";
+import HeaderItem from "./HeaderItem.astro";
+---
+
+<header
+  id="landing-header"
+  class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 scroll-m-4"
+>
+  <div class="flex flex-grow basis-0">
+    <a href="/"><Tesla /></a>
+  </div>
+
+  <nav>
+    <ul
+      class="transition-colors duration-300 flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-medium"
+    >
+      <HeaderItem href="#">Model S</HeaderItem>
+      <HeaderItem href="#">Model 3</HeaderItem>
+      <HeaderItem href="#">Model X</HeaderItem>
+      <HeaderItem href="#modely">Model Y</HeaderItem>
+      <HeaderItem href="#">Solar Roof</HeaderItem>
+      <HeaderItem href="#">Solar Panels</HeaderItem>
+    </ul>
+  </nav>
+  <nav class="flex flex-grow basis-0 justify-end">
+    <ul
+      class="transition-colors duration-300 flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-medium ext-gray-900"
+    >
+      <HeaderItem href="#">Support</HeaderItem>
+      <HeaderItem href="#">Shop</HeaderItem>
+      <HeaderItem href="#">Account</HeaderItem>
+      <HeaderItem href="#">Menu</HeaderItem>
+    </ul>
+  </nav>
+
+  <!-- cajita de los item -->
+  <div
+    id="menu-backdrop"
+    class={`
+  
+  absolute bg-black/10 backdrop-blur-lg rounded
+  left-[var(--left)] top-[var(--top)] w-[var(--width)] h-[var(--height)]
+  transition-all duration-300 
+  ease-in-out  opacity-0
+  -z-10
+  
+  `}
+  >
+  </div>
+</header>
+
+<script>
+  const listItem = document.querySelectorAll("#landing-header li");
+  const menuBackdrop = document.querySelector("#menu-backdrop") as HTMLElement;
+
+  listItem.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      // el boundingclient nos da los atributos actuales del elemento como posicion y tamanio
+      const { left, top, height, width } = item.getBoundingClientRect();
+      const { clientHeight, clientWidth } = item;
+      menuBackdrop.style.setProperty("--left", `${left}px`);
+      menuBackdrop.style.setProperty("--top", `${top}px`);
+      menuBackdrop.style.setProperty("--width", `${width}px`);
+      menuBackdrop.style.setProperty("--height", `${height}px`);
+      menuBackdrop.style.opacity = "1";
+      menuBackdrop.style.visibility = "visible";
+    });
+    item.addEventListener("mouseleave", () => {
+      menuBackdrop.style.opacity = "0";
+      menuBackdrop.style.visibility = "hidden";
+    });
+  });
+</script>
+
+<!-- usamos un script con un intersection observer. Que sirve para detectar cuando un elemento esta en el viewport, cual es su posicion, cual es el trozo de ese elemento que hay en el viewport etc -->
+
+<script>
+  //el $ solo lo usamos para indicr que es un elemento del DOM
+  const $header = document.querySelector("#landing-header") as HTMLElement;
+  const observerOptions = {
+    root: null, //el root es el elemento que queremos que se observe. En este caso es el viewport por eso no especificamos
+    rootMargin: "0px", //queremos en cuanto se vea o asome el elemento
+    threshold: 0.9, //porcentaje de visibilidad del elemento que queremos que se observe. Hasta que no haya mas del 90% visible, no se va a observar
+  };
+  //el IntersectionObserver recibe un callback que lo que va a hacer es, con los elementos que observe, tiene que dispararse
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry;
+      if (isIntersecting) {
+        const color = entry.target.getAttribute("data-header-color");
+        $header.style.color = color;
+      }
+    });
+  }, observerOptions);
+
+  const $sections = document.querySelectorAll(".landing-section");
+  $sections.forEach((section) => observer.observe(section));
+</script>
