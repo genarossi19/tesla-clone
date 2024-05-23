@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import ModelYSection from "../components/ModelYSection.astro";
+import Section from "../components/Section.astro";
+import Cybertruck from "../components/icons/Cybertruck.astro";
 ---
 
 <Layout title="Tesla">
@@ -9,7 +11,214 @@ import ModelYSection from "../components/ModelYSection.astro";
 
   <!-- el snap-y mandatory es para que al scrollear donde apenas aparezca la seccion, haga el salto -->
   <main class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
-    <HeroSection />
-    <ModelYSection />
+    <!-- HERO -->
+    <Section
+      color="white"
+      title="Disfrute de Tesla"
+      subtitle="Programe una prueba de conduccion hoy mismo"
+      id="#"
+    >
+      <div slot="footer">
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-white/30 hover:border-white/5 hover:backdrop-blur-3xl active:bg-white active:text-black transition-all duration-300"
+          href="#"><span>Prueba de conducción</span></a
+        >
+      </div>
+      <video
+        slot="background"
+        class="object-center object-cover h-full"
+        src="/video.webm"
+        autoplay
+        muted
+        loop></video>
+    </Section>
+
+    <!-- Model S -->
+    <Section
+      id="model-s"
+      color="black"
+      title="Model S"
+      subtitle="Concertar una prueba de conduccion"
+    >
+      <div
+        slot="footer"
+        class="flex flex-col px-6 justify-center gap-y-4 sm:flex-row sm:gap-x-6"
+      >
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-black/5 rounded cursor-pointer hover:bg-black/90 hover:border-black/5 hover:backdrop-blur-3xl bg-black/60 text-white transition-all duration-300"
+          href="#"
+        >
+          <span>Explorar inventario</span>
+        </a>
+
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-black/30 hover:border-gray-100/5 hover:backdrop-blur-3xl hover:text-white bg-white text-black transition-all duration-300"
+          href="#"><span>Pedido personalizado</span></a
+        >
+      </div>
+
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="model-s.avif"
+        alt="model-s"
+      />
+    </Section>
+    <!-- Model 3 -->
+    <Section
+      id="model-3"
+      color="black"
+      title="Model 3"
+      subtitle="Concertar una prueba de conduccion"
+    >
+      <div
+        slot="footer"
+        class="flex flex-col px-6 justify-center gap-y-4 sm:flex-row sm:gap-x-6"
+      >
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-black/5 rounded cursor-pointer hover:bg-black/90 hover:border-black/5 hover:backdrop-blur-3xl bg-black/60 text-white transition-all duration-300"
+          href="#"
+        >
+          <span>Explorar inventario</span>
+        </a>
+
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-black/30 hover:border-gray-100/5 hover:backdrop-blur-3xl hover:text-white bg-white text-black transition-all duration-300"
+          href="#"><span>Pedido personalizado</span></a
+        >
+      </div>
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="model-3.avif"
+        alt="model-3"
+      />
+    </Section>
+
+    <!-- Model X -->
+
+    <Section
+      id="model-x"
+      color="black"
+      title="Model X"
+      subtitle="Concertar una prueba de conduccion"
+    >
+      <div
+        slot="footer"
+        class="flex flex-col px-6 justify-center gap-y-4 sm:flex-row sm:gap-x-6"
+      >
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-black/5 rounded cursor-pointer hover:bg-black/90 hover:border-black/5 hover:backdrop-blur-3xl bg-black/60 text-white transition-all duration-300"
+          href="#"
+        >
+          <span>Explorar inventario</span>
+        </a>
+
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-black/30 hover:border-gray-100/5 hover:backdrop-blur-3xl hover:text-white bg-white text-black transition-all duration-300"
+          href="#"><span>Pedido personalizado</span></a
+        >
+      </div>
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="model-x.avif"
+        alt="model-x"
+      />
+    </Section>
+
+    <!-- Model Y -->
+
+    <Section
+      id="model-y"
+      color="black"
+      title="Model Y"
+      subtitle="Concertar una prueba de conduccion"
+    >
+      <div
+        slot="footer"
+        class="flex flex-col px-6 justify-center gap-y-4 sm:flex-row sm:gap-x-6"
+      >
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-black/5 rounded cursor-pointer hover:bg-black/90 hover:border-black/5 hover:backdrop-blur-3xl bg-black/60 text-white transition-all duration-300"
+          href="#"
+        >
+          <span>Explorar inventario</span>
+        </a>
+
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-black/30 hover:border-gray-100/5 hover:backdrop-blur-3xl hover:text-white bg-white text-black transition-all duration-300"
+          href="#"><span>Pedido personalizado</span></a
+        >
+      </div>
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="model-y.avif"
+        alt="model-y"
+      />
+    </Section>
+
+    <!-- Cybertruck -->
+
+    <Section id="cybertruck" color="black" title="" subtitle="">
+      <div slot="icon" class="mx-auto w-full flex justify-center items-center">
+        <Cybertruck />
+      </div>
+      <div
+        slot="footer"
+        class="flex flex-col px-6 justify-center gap-y-4 sm:flex-row sm:gap-x-6"
+      >
+        <a
+          class="text-sm py-2 px-20 bg-black/90 cursor-pointer border-t-4 border-gray-500 text-white/70 hover:bg-gray-800/70 hover:text-white transition-all duration-300"
+          href="#"
+        >
+          <span>Ordenar Ahora</span>
+        </a>
+
+        <a
+          class="text-sm py-2 px-24 bg-black/90 cursor-pointer border border-gray-500 text-white/70 hover:bg-gray-800/70 hover:text-white transition-all duration-300"
+          href="#"><span>Ver mas</span></a
+        >
+      </div>
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="cybertruck.avif"
+        alt="cybertruck"
+      />
+    </Section>
+
+    <!-- Solar Panels -->
+
+    <Section
+      id="solar-panels"
+      color="white"
+      title="Solar panels"
+      subtitle="Ordena una muestra"
+    >
+      <div
+        slot="footer"
+        class="flex flex-col px-6 justify-center gap-y-4 sm:flex-row sm:gap-x-6"
+      >
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-black/5 rounded cursor-pointer hover:bg-black/90 hover:border-black/5 hover:backdrop-blur-3xl bg-black/60 text-white transition-all duration-300"
+          href="#"
+        >
+          <span>Explorar inventario</span>
+        </a>
+
+        <a
+          class="text-sm py-2 px-12 border-[3px] border-white rounded cursor-pointer hover:bg-black/30 hover:border-gray-100/5 hover:backdrop-blur-3xl hover:text-white bg-white text-black transition-all duration-300"
+          href="#"><span>Pedido personalizado</span></a
+        >
+      </div>
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="solar-panels.avif"
+        alt="solar-panels"
+      />
+    </Section>
   </main>
 </Layout>

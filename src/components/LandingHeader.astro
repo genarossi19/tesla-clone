@@ -15,12 +15,12 @@ import HeaderItem from "./HeaderItem.astro";
     <ul
       class="transition-colors duration-300 flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-medium"
     >
-      <HeaderItem href="#">Model S</HeaderItem>
-      <HeaderItem href="#">Model 3</HeaderItem>
-      <HeaderItem href="#">Model X</HeaderItem>
-      <HeaderItem href="#modely">Model Y</HeaderItem>
-      <HeaderItem href="#">Solar Roof</HeaderItem>
-      <HeaderItem href="#">Solar Panels</HeaderItem>
+      <HeaderItem href="#model-s">Model S</HeaderItem>
+      <HeaderItem href="#model-3">Model 3</HeaderItem>
+      <HeaderItem href="#model-x">Model X</HeaderItem>
+      <HeaderItem href="#model-y">Model Y</HeaderItem>
+      <HeaderItem href="#cybertruck">Cybertruck</HeaderItem>
+      <HeaderItem href="#solar-panels">Solar Panels</HeaderItem>
     </ul>
   </nav>
   <nav class="flex flex-grow basis-0 justify-end">
@@ -39,7 +39,7 @@ import HeaderItem from "./HeaderItem.astro";
     id="menu-backdrop"
     class={`
   
-  absolute bg-black/10 backdrop-blur-lg rounded
+  absolute bg-gray-300/30 backdrop-blur-lg rounded
   left-[var(--left)] top-[var(--top)] w-[var(--width)] h-[var(--height)]
   transition-all duration-300 
   ease-in-out  opacity-0
