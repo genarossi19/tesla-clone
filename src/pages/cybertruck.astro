@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import CybertruckIconWhite from "../components/icons/CybertruckIconWhite.astro";
+---
+
+<Layout title="Cybertruck">
+  <main class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
+    <Section id="cybertruck" color="white" title="" subtitle="">
+      <div
+        slot="icon"
+        class="mx-auto w-full flex justify-center items-center text-white"
+      >
+        <CybertruckIconWhite />
+      </div>
+      <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src="cybertruck-main.avif"
+        alt="cybertruck"
+      />
+    </Section>
+  </main>
+</Layout>
